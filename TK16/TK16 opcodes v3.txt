@@ -1,0 +1,43 @@
+2014-02-17 New Opcodes for TK16
+
+A, B, R registers 16-bits wide
+
+16 address bit, 16 data bit RAM
+
+22 bit wide program memory (xxxxxxaaaaaaaaaaaaaaaa)
+6 high bits are instructions 0-63
+16 low bits are an address or constant value
+
+Instructions:
+0 - load RAM value into A
+1 - load RAM value into B
+2 - store value in R to RAM at address
+3 - load constant into A
+4 - load constant into B
+5 - store value in R to P (pointer) register
+6 - load from RAM to A using address stored in P
+7 - load from RAM to B using address stored in P
+8 - store key with P
+9 - load disp
+10 - key to disp
+11 - store R to address at P
+12 - A + B = R
+13 - A - B = R
+14 - A x B = R
+15 - A/B = R
+16 - -A = R
+17 - A AND B = R
+18 - A OR B = R
+19 - NOT A = R
+20 - Shift A left by B bits. Result in R
+21 - Shift A right by B bits. Result in R
+22 - Copy A to R
+23 - Copy B to R
+24 - Jump To Address 
+25 - Jump to Address if R = 0
+26 - Jump to Address is R != 0
+27 - clear display
+28 - counter reset
+29 - inc. p
+30 - call
+31 - return

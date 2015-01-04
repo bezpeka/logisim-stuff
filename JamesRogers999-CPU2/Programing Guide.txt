@@ -1,0 +1,188 @@
+=====================================Programming guide========================================
+I made this guide to help people to program my CPU, however you have to have knowledge on the
+program logisim and on programming. there might be some spelling and grammer mistakes as i 
+did make this in a rush :).
+
+----------ContentsÑÑÑÑÑ
+Getting started
+Button layout
+Command layout
+Write
+Jump
+Stop
+Output/Input
+Load ALU
+Compare
+How to save a program
+How to send your program
+----------------------------
+-------------------------------------Getting started-----------------------------------------
+when you enter logisim and open my CPU, you will start out in one of the circuits of the CPU,
+all you have to do is double click on "Main", you will see it on the left.
+
+you will also need to click on simulate->tick frequency->4.1KHz, then simulate->ticks enabled
+---------------------------------------------------------------------------------------------
+--------------------------------------Button layout------------------------------------------
+The programmer uses four buttons, clear, load, execute, and reset.
+
+clear(Cl)   -If when typing your command you make a mistake, the backspace does not work, you
+             must use the clear button to clear the text so you can type it again.
+
+Load(Ld)    -once you have typed your command correctly, you must load it into the memory of
+             the CPU, so click load and you should see your command (if typed correctly),on the display.
+
+Execute(Ex) -when you have finished your program, the execute button will start the program.
+
+Reset(Rs)   -This will stop the program.
+---------------------------------------------------------------------------------------------
+-------------------------------------Command Layout------------------------------------------
+Every command follows a format, line number, command, command data. all numbers entered will 
+be three digits. the first number you type is the line number, this will tell the CPU where 
+to put your command in the program, so if you type 000 as your first number, then it will be 
+the first command to be executed, 001 will be the second, 002 the third, etc.
+
+the command is the second thing you enter, it will be a three capital letter word such as
+WRT, OTP, STP, and so on.
+
+and command data is information that the CPU needs for a command, the layout is different for
+every command, but its up to four numbers long. for example for the jump command requires
+the line you want to jump to, so after you put "JMP" as the command, you put the line number,
+you will get it later on.
+---------------------------------------------------------------------------------------------
+-----------------------------------------Write-----------------------------------------------
+The CPU has a RAM, it is used for storing values in you program, the Write command is used to
+write data into the RAM. the RAM has 255 locations for a value to be stored, this is called 
+an address, so this is needed for the command as well as the value being stored.
+
+The written command is WRT
+
+the first number in the command data is the address, and the second is the value being stored
+
+an example of a write command is- 000 WRT 005 022, this will store at address 005, the number
+22.
+---------------------------------------------------------------------------------------------
+-----------------------------------------Jump------------------------------------------------
+commands are executed in a chronological order, line 000, line 001, line 002, etc. the jump
+command allows you to move to another line, for example, from line 2 to 10. you can also 
+create loops with this by jumping to a line somewhere before the line the jump command in on.
+
+The written command is JMP
+
+there is only one number required in the command data and that is the line to jump to.
+
+an example of a jump command is 000 JMP 005. when the command is executed the CPU will jump
+to line 5.
+---------------------------------------------------------------------------------------------
+----------------------------------------Stop-------------------------------------------------
+This is needed at the end of every program that doesn’t loop, it does the same as the reset
+button by stopping the program.
+
+The written command is STP
+
+there is no command data required
+
+an example of a stop command is 005 STP, when the CPU gets to line 5, the program will stop.
+---------------------------------------------------------------------------------------------
+------------------------------------input/output---------------------------------------------
+there are four commands for in/outputing:input, output, write input, write output. note that
+the CPU has 8 output ports and 8 input ports, each being 8-bits. we will start with output as
+it’s the easiest.
+......................................output.................................................
+The CPU has 8 output ports, each port is 8 bits. so to output a value the CPU needs the Port 
+you want to use and the 8-bit value you want to output on that port.
+
+the written command is OTP
+
+the first number in the command data is the port you want to use (0-7), and the second number
+is the value you want to output.
+
+an example of an output command is 000 OTP 004 142. this will output 142 in binary on port 4.
+.............................................................................................
+.......................................input.................................................
+the input command is the same as the jump command but it will only jump if the inputs meet
+a certain value. the information the CPU needs for this command is the port your using, the
+value that the inputs must meet for the command to jump, and the line to jump to if the
+inputs meet that value.
+
+the written command is INP
+
+the first number in the command data is the port being used, the second number is the value
+the inputs must meet, and the third is the line to jump to if the inputs are true.
+
+an example of a input command is 000 INP 003 005 012, this will make the CPU jump to line 12,
+if the inputs on port 3, are equal to 5 in binary. if not, the CPU will progress normally to
+line 1.
+.............................................................................................
+..................................write outputs..............................................
+this command uses the RAM, it will take a value from the RAM and output it on one of the
+ports. the information needed for this command is the address of the value in the RAM to be
+outputted, and the port to output it on.
+
+the written command is WTO
+
+the second number in the command data is the address of the RAM, and the first number is
+the port to output it on.
+
+an example of this command is, 000 WTO 003 002, this will output the value stored at address
+2 on port 3.
+.............................................................................................
+...................................write inputs..............................................
+this command also uses the RAM, it will take the value at one of the ports and store it in 
+the RAM, much like the write command, but the value being written is taken from the inputs. 
+the CPU requires information on the port being used, and where to store its value.
+
+the written command is WTI
+
+the first number in the command data is the port your using, and the second number is the
+address you want to store it on
+
+an example of a write inputs command is- 000 WTI 005 001, this will take the value at port
+5 and store it in the RAM at location 1.
+.............................................................................................
+---------------------------------------------------------------------------------------------
+--------------------------------------load ALU-----------------------------------------------
+this is one of the more complex commands, it allows you to do simple maths on stored values
+in the RAM. the ALU it a circuit that performs (in my CPU) add/subtract/multiply/divide, and
+stores the answer back into the RAM. The CPU needs information on the addresses of the two
+numbers you wish to put into the ALU, the function you want to carry out (add/subtract/...)
+and the address you wish to put the answer.
+
+the written command is LDA
+
+the first and second number in the command data in the two addresses of the two numbers you
+want to calculate, the third is the address where you want to put the result. the forth is
+the function 000=add 001=subtract 002=multiply 003=divide 004=AND 005=NAND 006=OR 007=XOR
+008=XNOR 009=NOT.
+
+and example of this is- 000 LDA 001 003 005 000, this will take the values at locations 1 and
+3, add them together, and put the result in location 5 of the RAM.
+---------------------------------------------------------------------------------------------
+--------------------------------------compare------------------------------------------------
+the compare command is similar to the input command, only it is the RAM. if two numbers in the
+RAM meet a certain condition, it will jump to another line in the program. the information
+needed for this command it’s the addresses of the two numbers you want to compare, the
+function (greater,equel,less), and the line to jump to if correct
+
+the written command is COM
+
+the first and second number in the command data is the addresses of the two numbers you want
+to compare, the third number is the line to jump to if true, and the forth number is the
+Function 000=greater 001=equal 002=less.
+
+an example of this command is- 000 COM 002 004 007 000, this will jump to line 7 if the
+number at location 2 is greater than the number at location 4
+---------------------------------------------------------------------------------------------
+-------------------------------How to save a program-----------------------------------------
+when you save my CPU along with your external circuitry that you’ve added, the program you
+have written will not be saved, what you have to do in double click on "instruction cache" to
+the left. the biggest component in the middle-top of the screen with all the numbers in is
+the cache which holds your program. right click on it and click save image, once you have
+done that your program is safe.
+
+to open your program again later, go back to the instruction cache, right click on the cache
+and load the image back in.
+---------------------------------------------------------------------------------------------
+-----------------------------How to send your program----------------------------------------
+I would love to see what you come up with, if you would like, send back the circuit file, 
+along with your program to jamesrogers221194@hotmail.co.uk thanks :D
+ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ

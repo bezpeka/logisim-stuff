@@ -1,0 +1,15 @@
+Saving to external RAM:
+000 OTP 000 002(Sets decoder output to write)
+001 OTP 001 xxx(Sets external RAM adress to xxx)
+002 WTO 002 xxx(Sets  external RAM data in to internal RAM adress xxx)
+003 OTP 000 000(Sets decoder output to null)
+Loading from external RAM:
+000 OTP 000 002(Sets decoder output to write)
+001 OTP 001 xxx(Sets external RAM adress to xxx)
+002 WTI 001 xxx(Stores external RAM data out at internal ram address xxx)
+003 OTP 000 000(Sets decoder output to null)
+Saving an immediate value to external RAM:
+000 OTP 000 002(Sets decoder output to write)
+001 OTP 001 xxx(Sets external RAM adress to xxx)
+002 OTP 003 xxx(Sets external RAM data in to xxx)
+003 OTP 000 000(Sets decoder output to null)

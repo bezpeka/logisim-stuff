@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </tool>
+    <tool name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="pull" val="down"/>
+      <a name="label" val="NC"/>
+    </tool>
+    <tool name="Probe">
+      <a name="facing" val="north"/>
+      <a name="label" val="incr"/>
+    </tool>
+    <tool name="Tunnel">
+      <a name="label" val="JMP"/>
+    </tool>
+    <tool name="Pull Resistor">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Clock">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Constant">
+      <a name="width" val="7"/>
+      <a name="value" val="0x30"/>
+    </tool>
+    <tool name="Bit Extender">
+      <a name="in_width" val="3"/>
+      <a name="out_width" val="7"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2">
+    <tool name="Multiplexer">
+      <a name="width" val="16"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="D Flip-Flop">
+      <a name="trigger" val="high"/>
+    </tool>
+    <tool name="Register">
+      <a name="width" val="4"/>
+    </tool>
+    <tool name="Counter">
+      <a name="width" val="7"/>
+      <a name="max" val="0x7f"/>
+    </tool>
+    <tool name="RAM">
+      <a name="addrWidth" val="3"/>
+    </tool>
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5">
+    <tool name="Button">
+      <a name="label" val="res"/>
+      <a name="labelloc" val="west"/>
+    </tool>
+  </lib>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="WORM converter"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="acd"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="store"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="20"/>
+    </tool>
+    <tool lib="1" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="negate1" val="true"/>
+    </tool>
+    <tool lib="1" name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </tool>
+  </toolbar>
+  <circuit name="WORM converter">
+    <a name="circuit" val="WORM converter"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(180,230)" to="(190,230)"/>
+    <wire from="(200,230)" to="(200,240)"/>
+    <wire from="(30,230)" to="(140,230)"/>
+    <wire from="(260,340)" to="(260,360)"/>
+    <wire from="(260,320)" to="(260,340)"/>
+    <wire from="(70,210)" to="(70,240)"/>
+    <wire from="(220,220)" to="(220,250)"/>
+    <wire from="(130,310)" to="(140,310)"/>
+    <wire from="(70,210)" to="(140,210)"/>
+    <wire from="(140,320)" to="(260,320)"/>
+    <wire from="(100,170)" to="(100,280)"/>
+    <wire from="(240,280)" to="(290,280)"/>
+    <wire from="(70,240)" to="(180,240)"/>
+    <wire from="(140,280)" to="(170,280)"/>
+    <wire from="(180,220)" to="(180,230)"/>
+    <wire from="(30,250)" to="(70,250)"/>
+    <wire from="(100,170)" to="(210,170)"/>
+    <wire from="(290,250)" to="(290,280)"/>
+    <wire from="(260,320)" to="(340,320)"/>
+    <wire from="(210,170)" to="(210,210)"/>
+    <wire from="(100,280)" to="(100,300)"/>
+    <wire from="(180,240)" to="(180,260)"/>
+    <wire from="(30,230)" to="(30,250)"/>
+    <wire from="(130,330)" to="(170,330)"/>
+    <wire from="(170,280)" to="(170,330)"/>
+    <wire from="(200,240)" to="(340,240)"/>
+    <wire from="(140,340)" to="(140,360)"/>
+    <wire from="(140,310)" to="(140,320)"/>
+    <wire from="(220,250)" to="(290,250)"/>
+    <wire from="(170,220)" to="(180,220)"/>
+    <wire from="(70,250)" to="(70,280)"/>
+    <wire from="(110,310)" to="(110,330)"/>
+    <wire from="(140,360)" to="(260,360)"/>
+    <wire from="(340,240)" to="(340,320)"/>
+    <comp lib="4" loc="(140,280)" name="T Flip-Flop"/>
+    <comp lib="0" loc="(260,340)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="new punch card"/>
+    </comp>
+    <comp lib="0" loc="(70,280)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="carry"/>
+    </comp>
+    <comp lib="0" loc="(180,260)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="store"/>
+    </comp>
+    <comp lib="1" loc="(110,330)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="control" val="left"/>
+    </comp>
+    <comp lib="0" loc="(200,290)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="acd"/>
+    </comp>
+    <comp lib="1" loc="(210,270)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="negate1" val="true"/>
+    </comp>
+    <comp lib="4" loc="(210,210)" name="Counter">
+      <a name="width" val="1"/>
+      <a name="max" val="0x1"/>
+    </comp>
+    <comp lib="1" loc="(170,220)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(220,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="store"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(120,340)" name="NOT Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="1" loc="(240,280)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="negate1" val="true"/>
+    </comp>
+  </circuit>
+</project>
