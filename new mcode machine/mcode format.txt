@@ -1,0 +1,50 @@
+Format for 32 bit mcode instructions
+for Logisim mcode machine
+
+3      2        1
+1      4        6      8       0
+lkjixxhgggfffeeedcbbbbbbaaaaaaaa
+
+
+a, 8 bits: jump address for next mcode instruction
+	controlled by bits i, j, and k
+
+b, 6 bits: ALU operation, see below
+
+c, 1 bit: write ALU result to register adresses by part e
+
+d, 1 bit: write ALU result to memory
+
+e, 3 bits: Which register R0-R7 to write reult to if c is set
+
+f, 3 bits: Which register to use for ALU input A. Also used as MEM address
+
+g, 3 bits: Which register to use for ALU input B
+
+h, 1 bit: Use MEM data for ALU input B instead of a register
+
+x, 2 bits: not used
+
+i, 1 bit: Always jump to mcode address 'a' for next instruction
+	otherwise increment to next mcode address
+
+j, 1 bit: jump to mcode address 'a' if ALU carry is set
+
+k, 1 bit: jump to mcode address 'a' if ALU zero is set
+
+l, 1 bit: jump to mcode address read from memory bits 8-15.
+
+
+ALU opcodes:
+
+0x0 = add
+0x1 = sub
+0x2 = or
+0x3 = and
+0x4 = negate
+0x5 = shift right(logical)
+0x6 = a passthrough
+0x7 = b passthrough
+0x8 = constant 0
+0x9 = constant 1
+0xa = inc
