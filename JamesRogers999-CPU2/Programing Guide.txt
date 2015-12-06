@@ -1,6 +1,6 @@
 =====================================Programming guide========================================
 I made this guide to help people to program my CPU, however you have to have knowledge on the
-program logisim and on programming. there might be some spelling and grammer mistakes as i 
+program logisim and on programming. there might be some spelling and grammar mistakes as I
 did make this in a rush :).
 
 ----------Contents—————
@@ -84,7 +84,7 @@ there is no command data required
 an example of a stop command is 005 STP, when the CPU gets to line 5, the program will stop.
 ---------------------------------------------------------------------------------------------
 ------------------------------------input/output---------------------------------------------
-there are four commands for in/outputing:input, output, write input, write output. note that
+there are four commands for in/outputting:input, output, write input, write output. note that
 the CPU has 8 output ports and 8 input ports, each being 8-bits. we will start with output as
 itís the easiest.
 ......................................output.................................................
