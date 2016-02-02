@@ -11,8 +11,8 @@ if len(sys.argv) == 2:
 else:
     SOURCE_FILENAME = raw_input('input file:')
 t = SOURCE_FILENAME.strip( '.asm' )
-OUTPUT_FILENAME = t+ ".code"
-
+OUTPUT_FILENAME = raw_input("output file:")
+print(OUTPUT_FILENAME)
 VALID_LABEL = re.compile("[a-zA-Z_][a-zA-Z0-9_]*")
 
 #key is lowercase instruction name
@@ -83,8 +83,10 @@ for line in asm_lines:
         if len(tokens) > 0 and tokens[0] == ".def":
             if len(tokens) >= 3:
                 (name, value) = tokens[1:]
+      
                 assert_label(name)
                 labels[name] = convert_number(value)
+
                 #remove the three tokens in the .def statement
                 tokens = tokens[3:] 
             else:
