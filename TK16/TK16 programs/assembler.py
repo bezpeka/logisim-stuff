@@ -43,7 +43,7 @@ INSTRUCTION_TABLE = {
     'jumpz':(25, True),
     'jumpnz':(26, True),
     'cleargdisp':(27,False),
-    'clearPC':(28,False),
+    'clearpc':(28,False),
     'incp':(29,False),
     'call':(30,True),
     'return':(31,False),

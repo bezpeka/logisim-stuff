@@ -26,7 +26,7 @@ jump
 jumpz
 jumpnz
 cleargdisp
-clearPC
+clearpc
 incp
 call
 return
