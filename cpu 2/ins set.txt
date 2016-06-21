@@ -2,4 +2,4 @@
 000x02-STO(x is 3-bit register ID)
 000x03-LODI(x is 3-bit register ID)
 00xy04-LODwP(x is 3-bit register ID,y is 2-bit register pair ID)Note:cannot write to either register in address register pair
-00xy05-STOwP(x is 3-bit register ID,y is 2-bit register pair ID)Note:cannot write to either register in address register pair
+00xy05-STOwP(x is 3-bit register ID,y is 2-bit register pair ID)
