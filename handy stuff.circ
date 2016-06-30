@@ -50,8 +50,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Button3" name="Menu Tool"/>
     <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -80,8 +80,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(140,250)" to="(150,250)"/>
     <wire from="(50,290)" to="(60,290)"/>
+    <wire from="(140,250)" to="(150,250)"/>
     <wire from="(10,230)" to="(10,280)"/>
     <wire from="(50,140)" to="(70,140)"/>
     <wire from="(170,140)" to="(170,260)"/>
@@ -89,10 +89,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(210,140)" to="(270,140)"/>
     <wire from="(110,290)" to="(150,290)"/>
     <wire from="(80,270)" to="(80,300)"/>
-    <wire from="(160,300)" to="(160,310)"/>
     <wire from="(70,140)" to="(70,230)"/>
-    <wire from="(150,310)" to="(160,310)"/>
+    <wire from="(160,300)" to="(160,310)"/>
     <wire from="(70,140)" to="(170,140)"/>
+    <wire from="(150,310)" to="(160,310)"/>
     <wire from="(130,260)" to="(130,270)"/>
     <wire from="(60,280)" to="(120,280)"/>
     <wire from="(140,230)" to="(210,230)"/>
@@ -105,12 +105,26 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(10,230)" to="(70,230)"/>
     <wire from="(150,290)" to="(150,310)"/>
     <wire from="(80,270)" to="(130,270)"/>
+    <comp lib="4" loc="(140,230)" name="T Flip-Flop"/>
+    <comp lib="1" loc="(80,300)" name="OR Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="0" loc="(40,290)" name="Clock">
       <a name="facing" val="north"/>
     </comp>
+    <comp lib="4" loc="(60,270)" name="Counter">
+      <a name="width" val="2"/>
+      <a name="max" val="0x1"/>
+    </comp>
     <comp lib="0" loc="(100,250)" name="Constant"/>
-    <comp lib="1" loc="(80,300)" name="OR Gate">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(50,140)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="in"/>
+    </comp>
+    <comp lib="1" loc="(160,300)" name="NOR Gate">
+      <a name="facing" val="south"/>
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
@@ -119,20 +133,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="label" val="out"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(50,140)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="in"/>
-    </comp>
-    <comp lib="4" loc="(140,230)" name="T Flip-Flop"/>
-    <comp lib="4" loc="(60,270)" name="Counter">
-      <a name="width" val="2"/>
-      <a name="max" val="0x3"/>
-    </comp>
-    <comp lib="1" loc="(160,300)" name="NOR Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
     </comp>
   </circuit>
 </project>
