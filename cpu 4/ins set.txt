@@ -1,0 +1,13 @@
+00=Memory to Register A
+01=Memory to Register B
+02=Memory to Register C
+03=Memory to Register D
+04=Immediate to Register A
+05=Immediate to Register B
+06=Immediate to Register C
+07=Immediate to Register D
+12x-Add Register x[2-3] to Register x[0-1]
+13x-Subtract Register x[2-3] from Register x[0-1]
+14x-And Register x[2-3] with Register x[0-1]
+15x-Or Register x[2-3] with Register x[0-1]
+16x-Or Register x[2-3] with Register x[0-1] w/o storing result??????
