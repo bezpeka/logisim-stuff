@@ -1,5 +1,15 @@
-000x01-LOD(x is 3-bit register ID)
-000x02-STO(x is 3-bit register ID)
-000x03-LODI(x is 3-bit register ID)
-00xy04-LODwP(x is 3-bit register ID,y is 2-bit register pair ID)Note:cannot write to either register in address register pair
-00xy05-STOwP(x is 3-bit register ID,y is 2-bit register pair ID)
+Opcode format:
+Bits 0-1:A select
+Bits 2-3:B select
+Bits 4-5:Op select
+Bit 6:Store
+Bit 7:Jump
+A/B select:
+00-Memory
+01-Immediate
+10-Result
+Op select:
+00-Add
+01-Sub
+10-Pass through A sel to R
+11-Halt

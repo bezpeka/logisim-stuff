@@ -1,6 +1,0 @@
-1-ldx
-2-ldy
-3-add
-4-sub
-5-immload
-6-halt
