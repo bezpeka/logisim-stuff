@@ -1,27 +1,14 @@
-0 = lda
-
-1 = ldb
-
-2 = ldai
-
-3 = ldbi
-
-4 = add
-
-5 = sub
-
-6 = mult
-
-7 = div
-
-8 = sta
-
-9 = stb
-
-a = str
-
-b = jmp
-
-c = jmpc
-
-d = jmpz
+0=lda
+1=ldb
+2=ldai
+3=ldbi
+4=add
+5=sub
+6=mult
+7=div
+8=sta
+9=stb
+a=str
+b=jmp
+c=jmpc
+d=jmpz
