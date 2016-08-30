@@ -1,0 +1,46 @@
+Proposed Op codes for KT8 processor
+Created - CAK 2-11-2014
+
+KT8 (Krauter/Terpstra 8-bit) is a super simple processor that works with just 8-bit instructions.
+
+KT8 Has:
+- 8-bit wide instructions in a separate bank of program memory. 
+- Three registers for arithmetic:
+	A = input 1
+	B = input 2
+	R = result
+- 14 bytes of RAM memory[0-13].
+- A keyboard at address 14
+- A screen at address 15
+
+
+Op Codes:
+
+Bits        OP Name        Description
+
+0000 aaaa - LOADA aaaaa : copy from RAM address to register A
+0001 aaaaa - LOADB aaaaa : copy from RAM address to register B
+0010 aaaaa - SAVE aaaaa : copy from register R to RAM address
+
+0100 xxxx - LOWBITS xxxx : save 4bits=xxxx to lower bits[0-3] of B
+0100 0000 - ADD          : R = A + B  
+0100 0001 - SUB          : R = A - B
+0100 0010 - AND          : R = A AND B
+0100 0011 - OR           : R = A OR B
+0100 0100 - XOR          : R = A XOR B
+0100 0101 - INVA	 : R = bit inverse A
+0100 0110 - INVB	 : R = bit inverse B
+0100 0111 - PASSA	 : R = A
+0100 1000 - PASSB	 : R = B
+0100 1001 - LSHIFT	 : R = A << 1
+0100 1010 - RSHIFT	 : R = A >> 1
+0100 1011 - CLEAR	 : set R to zero
+0100 1100 - INC		 : add 1 to R
+0100 1101 - DEC		 : subtract 1 from R
+
+0101 xxxx - FJMP xxxx : move program counter forward by xxxx instructions
+0110 xxxx - BJMP xxxx : move program counter back by xxxx instructions
+0111 0000 - SKIPZ : if R is zero move program counter forward 2 instead of 1
+0111 0001 - SKIPNZ : if R is not zero move program counter forward 2 instead of 1
+
+11111111 - RESET : put program counter back to zero
