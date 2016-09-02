@@ -1,0 +1,4 @@
+LOADA e
+PASSA
+SAVE f
+RESET
