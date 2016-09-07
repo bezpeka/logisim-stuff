@@ -14,7 +14,7 @@
 0dx-Subtract Register x[2-3] from Register x[0-1]
 0ex-And Register x[2-3] with Register x[0-1]
 0fx-Or Register x[2-3] with Register x[0-1]
-10x-Or Register x[2-3] with Register x[0-1] w/o storing result??????
+10x-Compare Register x[2-3] with Register x[0-1]
 11-Immediate to PC
 12-Immediate to PC if Carry on
 13-Immediate to PC if Carry off
