@@ -11,5 +11,9 @@ A/B select:
 Op select:
 00-Add
 01-Sub
-10-Pass through A sel to R
+10-Pass through A to R
 11-Halt
+Jump Op:
+00=Unconditional jump
+01-Jump if z
+10 Jump if not z
