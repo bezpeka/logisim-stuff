@@ -17,7 +17,7 @@ How to save a program
 How to send your program
 ----------------------------
 -------------------------------------Getting started-----------------------------------------
-when you enter logisim and open my CPU, you will start out in one of the circuits of the CPU,
+When you enter logisim and open my CPU, you will start out in one of the circuits of the CPU,
 all you have to do is double click on "Main", you will see it on the left.
 
 you will also need to click on simulate->tick frequency->4.1KHz, then simulate->ticks enabled
@@ -74,7 +74,7 @@ an example of a jump command is 000 JMP 005. when the command is executed the CP
 to line 5.
 ---------------------------------------------------------------------------------------------
 ----------------------------------------Stop-------------------------------------------------
-This is needed at the end of every program that doesn’t loop, it does the same as the reset
+This is needed at the end of every program that doesn't loop, it does the same as the reset
 button by stopping the program.
 
 The written command is STP
