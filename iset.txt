@@ -1,0 +1,8 @@
+0-lda
+1-ldb
+2-str
+3-add
+4-sub
+5-jmp
+6-jn
+7-hlt
