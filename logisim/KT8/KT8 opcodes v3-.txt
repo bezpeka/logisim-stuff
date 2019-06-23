@@ -1,0 +1,45 @@
+KT8 (Krauter/Terpstra 8-bit) is a super simple processor that works with just 8-bit instructions.
+
+KT8 Has:
+- 8-bit wide instructions in a separate bank of program memory. 
+- Three registers for arithmetic:
+	A = input 1
+	B = input 2
+	R = result
+4 bit adress bus divided up like so:
+	0-13 is RAM
+	14 is keyboard
+	15 is display
+Op Codes:
+
+Bits        OP Name        Description
+
+0000 aaaa - LOADA aaaaa : copy from RAM address to register A
+0001 aaaa - LOADB aaaaa : copy from RAM address to register B
+0010 aaaa - SAVE aaaaa : copy from register R to RAM address
+
+0011 xxxx - LOWBITS xxxx : save 4bits=xxxx to low bits[0-3] of B
+0100 0000 - ADD          : R = A + B  
+0100 0001 - SUB          : R = A - B
+0100 0010 - AND          : R = A AND B
+0100 0011 - OR           : R = A OR B
+0100 0100 - XOR          : R = A XOR B
+0100 0101 - INVA	 : R = bit inverse A
+0100 0110 - INVB	 : R = bit inverse B
+0100 0111 - SWAPA	 : swap values between R and A
+0100 1000 - SWAPB	 : swap values between R and B
+0100 1001 - LSHIFT	 : shift bits in R to the left
+0100 1010 - RSHIFT	 : shift bits in R to the right
+0100 1011 - CLEAR	 : set R to zero
+0100 1100 - INC		 : add 1 to R
+0100 1101 - DEC		 : subtract 1 from R
+
+0101 xxxx - FJMP xxxx : move program counter forward by xxxx instructions
+0110 xxxx - BJMP xxxx : move program counter back by xxxx instructions
+0111 xxxx - FJMPZ xxxx : move program counter forward by xxxx instructions if zero
+1000 xxxx - FJMPZ xxxx : move program counter back by xxxx instructions if zero
+1001 xxxx - FJMPNZ xxxx : move program counter forward by xxxx instructions if not zero
+1010 xxxx - FJMPNZ xxxx : move program counter back by xxxx instructions if not zero
+
+1011 0000 - RESET : put program counter back to zero.
+1011 0000 - HALT : stop KT8.
